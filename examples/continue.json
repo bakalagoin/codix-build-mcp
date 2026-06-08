@@ -1,0 +1,14 @@
+{
+  "experimental": {
+    "modelContextProtocolServers": [
+      {
+        "name": "codix-build",
+        "transport": {
+          "type": "stdio",
+          "command": "npx",
+          "args": ["-y", "@codinfy/codix-build-mcp"]
+        }
+      }
+    ]
+  }
+}

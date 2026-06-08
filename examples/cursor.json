@@ -1,0 +1,8 @@
+{
+  "name": "codix-build",
+  "command": "npx",
+  "args": ["-y", "@codinfy/codix-build-mcp"],
+  "env": {
+    "CODIX_BUILD_API_KEY": ""
+  }
+}
