@@ -10,6 +10,5 @@ Reusable prompt packs served by `codix.prompt.generate`. Each subfolder is a coh
 | `cpanel/` | Shared hosting constraints, no daemon, queue=database |
 | `deploy/` | cPanel, Vercel, Render, Fly.io, Cloudflare Pages |
 
-Each pack ships a `pack.json` (versioned schema), a `prompts/` folder, and a `bench.md` with the measured token reduction vs the baseline.
-
-Filled in by AGENT-46.
+Each pack ships a versioned `pack.json` with compact prompt fragments that
+agents can combine with `codix.context.smart`.

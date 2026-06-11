@@ -1,0 +1,9 @@
+{
+  "id": "deploy",
+  "version": "0.1.0",
+  "goal": "Generate deploy guides for cPanel, VPS, Docker and serverless hosts.",
+  "prompts": [
+    "List exact build, env, migration, cache, cron and rollback steps.",
+    "Call out host-specific limitations and secret handling."
+  ]
+}

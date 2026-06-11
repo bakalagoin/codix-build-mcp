@@ -9,6 +9,4 @@ Markdown skill briefings served by `codix.architecture.get` and `codix.context.s
 | `docs/` | README templates, CONTRIBUTING, CHANGELOG conventions |
 | `business-kit/` | Pricing, terms, refund policy, marketplace pitch |
 
-Each pack ships a `pack.json`, an `index.md` (entry point), and short, single-purpose `.md` files cross-linked with relative paths.
-
-Filled in by AGENT-46.
+Each pack ships an `index.md` entry point with short, single-purpose guidance.

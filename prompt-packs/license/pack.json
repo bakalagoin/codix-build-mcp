@@ -1,0 +1,9 @@
+{
+  "id": "license",
+  "version": "0.1.0",
+  "goal": "Generate secure license validation clients and docs.",
+  "prompts": [
+    "Implement HMAC request signing over the exact raw body and anti-replay timestamps.",
+    "Verify RS256 JWT locally and add read-only grace behavior for temporary upstream failures."
+  ]
+}

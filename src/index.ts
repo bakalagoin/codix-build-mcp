@@ -1,69 +1,43 @@
 #!/usr/bin/env node
 /**
- * @codinfy/codix-build-mcp - Codix Build MCP (scaffold).
+ * @codinfy/codix-build-mcp - public Codix Build MCP (AGENT-46).
  *
- * Full tool implementations land in AGENT-46 of the Codinfy build plan.
- * Will register 16 tools under the `codix.*` namespace:
- *
- *   Analyse & plan
- *     codix.project.analyze
- *     codix.stack.recommend
- *     codix.architecture.get
- *     codix.context.smart
- *
- *   Generate
- *     codix.prompt.generate
- *     codix.template.get
- *     codix.license.inject
- *     codix.design.apply
- *     codix.api.generate
- *     codix.database.schema
- *
- *   Quality & ops
- *     codix.security.checklist
- *     codix.marketplace.check
- *     codix.docs.generate
- *     codix.deploy.guide
- *     codix.debug.help
- *     codix.cost.optimize
- *
- * Auth: optional CODIX_BUILD_API_KEY env var. Without it the MCP runs in
- * public mode with conservative rate limits.
- *
- * Smart Context Mode: see src/context/ - chunkers and retrievers send only
- * the slice the calling agent actually needs, dramatically lowering token
- * cost on long-running scaffolding sessions.
- *
- * Spec: https://docs.codinfy.com/codix-build-mcp
+ * 16 local deterministic tools for project planning, stack selection,
+ * templates, license/design/API/database/docs/deploy guidance and Smart
+ * Context Mode. The package exposes no internal Codinfy secrets and does not
+ * fake external APIs; it only returns build guidance and starter structures.
  */
 
-import { Server } from "@modelcontextprotocol/sdk/server/index.js";
+import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 
-const PACKAGE_NAME = "@codinfy/codix-build-mcp";
-const PACKAGE_VERSION = "0.1.0";
+import { loadConfig, PACKAGE_NAME, PACKAGE_VERSION } from "./config.js";
+import { registerTools, TOOL_NAMES } from "./tools.js";
+
+export function buildServer(env: NodeJS.ProcessEnv = process.env): McpServer {
+  loadConfig(env);
+
+  const server = new McpServer({ name: PACKAGE_NAME, version: PACKAGE_VERSION });
+  registerTools(server);
+
+  return server;
+}
 
 async function main(): Promise<void> {
-  const apiKey = process.env.CODIX_BUILD_API_KEY ?? "";
-
-  const server = new Server(
-    { name: PACKAGE_NAME, version: PACKAGE_VERSION },
-    { capabilities: { tools: {} } },
-  );
-
-  // AGENT-46: register tools under codix.* namespace here.
-  // server.setRequestHandler(...)
-  void apiKey;
-
+  const config = loadConfig();
+  const server = buildServer();
   const transport = new StdioServerTransport();
   await server.connect(transport);
-  const mode = apiKey ? "authenticated" : "public";
+
   console.error(
-    `[${PACKAGE_NAME}] v${PACKAGE_VERSION} ready on stdio (${mode} mode).`,
+    `[${PACKAGE_NAME}] v${PACKAGE_VERSION} ready on stdio (${config.mode} mode, ${TOOL_NAMES.length} tools).`,
   );
 }
 
-main().catch((error: unknown) => {
-  console.error(`[${PACKAGE_NAME}] Fatal:`, error);
-  process.exit(1);
-});
+const entry = process.argv[1]?.replace(/\\/g, "/");
+if (entry && import.meta.url.endsWith(entry.split("/").pop() ?? "")) {
+  main().catch((error: unknown) => {
+    console.error(`[${PACKAGE_NAME}] Fatal:`, error);
+    process.exit(1);
+  });
+}

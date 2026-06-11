@@ -1,0 +1,9 @@
+{
+  "id": "cpanel",
+  "version": "0.1.0",
+  "goal": "Keep PHP projects compatible with shared hosting.",
+  "prompts": [
+    "Avoid permanent Node/Docker requirements; build assets before deployment.",
+    "Use cron schedule:run, queue database, file/database cache and public/ document root."
+  ]
+}

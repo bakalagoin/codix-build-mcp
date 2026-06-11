@@ -1,0 +1,9 @@
+{
+  "id": "token-saver",
+  "version": "0.1.0",
+  "goal": "Keep implementation prompts compact by selecting only relevant context chunks.",
+  "prompts": [
+    "Summarize the current task in 6 bullets, then implement only the touched files.",
+    "Use codix.context.smart first; do not paste entire documentation unless a chunk is requested."
+  ]
+}

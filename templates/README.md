@@ -19,4 +19,5 @@ Each template ships:
 - a `README.md` for humans;
 - a `SETUP.md` for agents (machine-readable steps).
 
-Templates are filled in by AGENT-46. Until then this folder is intentionally empty.
+AGENT-46 ships template briefs instead of huge generated apps. The MCP returns
+the right brief on demand, then the coding agent applies it in the target repo.

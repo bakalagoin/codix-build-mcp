@@ -10,8 +10,8 @@
 
 ## Status
 
-> 🚧 **v0.1.0 — scaffold.** Full tools, templates, prompt packs and skill packs land in AGENT-46.
-> Track progress at [`docs.codinfy.com/codix-build-mcp`](https://docs.codinfy.com/codix-build-mcp).
+> **v0.1.0 — AGENT-46 public release.** Ships 16 local `codix.*` tools, Smart Context Mode, templates, prompt packs, skill packs, client examples and docs.
+> Track docs at [`docs.codinfy.com/codix-build-mcp`](https://docs.codinfy.com/codix-build-mcp).
 
 ---
 
@@ -60,23 +60,23 @@ npx -y @codinfy/codix-build-mcp
 }
 ```
 
-### Cursor / Codex / Continue / Cline / Windsurf
+### Cursor / Codex / Continue / Windsurf / GitHub Copilot-compatible clients
 
-See [`docs.codinfy.com/codix-build-mcp/clients`](https://docs.codinfy.com/codix-build-mcp).
+See [`examples/`](examples) and [`docs/getting-started.md`](docs/getting-started.md).
 
-### Authenticated mode (optional, for higher quotas)
+### Authenticated mode
 
-Add an API key from [`codinfy.com/admin/parametres/api-s`](https://codinfy.com):
+v0.1.0 works fully in public local mode. `CODIX_BUILD_API_KEY` is reserved for future public quotas:
 
 ```json
 "env": { "CODIX_BUILD_API_KEY": "pk_live_xxxxxxxxxxxxxxxxx" }
 ```
 
-Without a key, the MCP runs in public mode with conservative rate limits.
+Without a key, the MCP runs in public mode and never calls internal Codinfy services.
 
 ---
 
-## Tools (16 — implemented in AGENT-46)
+## Tools (16)
 
 ### Analyse & plan
 - `codix.project.analyze` — turn a short brief into a structured project spec
@@ -100,7 +100,7 @@ Without a key, the MCP runs in public mode with conservative rate limits.
 - `codix.debug.help` — interactive debugging hints for the current stack
 - `codix.cost.optimize` — flag expensive patterns (token-burning prompts, N+1, fat assets)
 
-> Schemas, parameters, examples and changelogs live in [`docs.codinfy.com/codix-build-mcp`](https://docs.codinfy.com/codix-build-mcp).
+Schemas, parameters, examples and changelogs live in [`docs/`](docs) and at [`docs.codinfy.com/codix-build-mcp`](https://docs.codinfy.com/codix-build-mcp).
 
 ---
 
@@ -110,9 +110,9 @@ Without a key, the MCP runs in public mode with conservative rate limits.
 codix-build-mcp/
 ├── src/
 │   ├── index.ts              # MCP server bootstrap
-│   ├── tools/                # one file per tool, all re-exported
-│   ├── context/              # Smart Context Mode (chunkers, retrievers)
-│   └── types/                # shared Zod schemas
+│   ├── tools.ts              # MCP tool registry
+│   ├── engine.ts             # local deterministic planning engine
+│   └── config.ts             # public runtime config
 ├── templates/                # project templates
 │   ├── laravel/
 │   ├── nextjs/
@@ -136,7 +136,9 @@ codix-build-mcp/
 │   ├── claude-code.json
 │   ├── codex.json
 │   ├── cursor.json
+│   ├── github-copilot.json
 │   └── windsurf.json
+├── docs/                     # getting-started, tool reference, FAQ, changelog
 ├── package.json
 ├── tsconfig.json
 └── .github/workflows/        # ci.yml + publish-npm.yml
