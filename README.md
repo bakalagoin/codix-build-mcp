@@ -1,10 +1,23 @@
-# `@codinfy/codix-build-mcp` — Codix Build MCP
+<div align="center">
 
-> Official **Codix Build MCP** by Codinfy.
-> Build websites, mobile apps, SaaS, scripts, and software **faster** with AI agents while **reducing token usage** via Smart Context Mode.
+<img src="assets/codinfy-brand/ICON.png" alt="Codix Build" width="96" />
 
-[![npm version](https://img.shields.io/npm/v/@codinfy/codix-build-mcp.svg)](https://www.npmjs.com/package/@codinfy/codix-build-mcp)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+# `@codinfy/codix-build-mcp`
+
+### Build faster with AI agents — Codix Build MCP
+
+Build **websites, mobile apps, SaaS, scripts and software faster** with AI agents while **reducing token usage** via Smart Context Mode. Works with Claude Code, Codex, Cursor, Continue, Cline, Windsurf.
+
+[![npm version](https://img.shields.io/npm/v/@codinfy/codix-build-mcp.svg?color=FF7900)](https://www.npmjs.com/package/@codinfy/codix-build-mcp)
+[![License: MIT](https://img.shields.io/badge/License-MIT-34BB78.svg)](LICENSE)
+[![Node](https://img.shields.io/badge/node-%E2%89%A518-339933?logo=node.js&logoColor=white)](https://nodejs.org)
+[![MCP](https://img.shields.io/badge/Model_Context_Protocol-compatible-2563EB)](https://modelcontextprotocol.io)
+
+**📦 [npm](https://www.npmjs.com/package/@codinfy/codix-build-mcp) · 🌐 [codinfy.com](https://codinfy.com) · 📚 [docs.codinfy.com/codix-build-mcp](https://docs.codinfy.com/codix-build-mcp) · 🛡️ [Security](SECURITY.md)**
+
+**🇬🇧 English** · [🇫🇷 Français](README.fr.md)
+
+</div>
 
 ---
 
@@ -175,6 +188,26 @@ Report vulnerabilities privately to **security@codinfy.com**. See [`SECURITY.md`
 
 Issues and PRs welcome. See [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
+## 🌍 Connect with us
+
+| Network | Codinfy | Bakala Goin (Founder & CEO) |
+|---|---|---|
+| **Facebook** | [@codinfyci](https://facebook.com/codinfyci) | [@bakalagoin](https://facebook.com/bakalagoin) |
+| **Instagram** | [@codinfyci](https://instagram.com/codinfyci) | [@bakalagoin](https://instagram.com/bakalagoin) |
+| **LinkedIn** | [company/codinfyen](https://linkedin.com/company/codinfyen/) | [bakala-goin](https://www.linkedin.com/in/bakala-goin-66428b247) |
+| **TikTok** | — | [@bakalagoin](https://www.tiktok.com/@bakalagoin) |
+| **X (Twitter)** | — | [@bakalagoin](https://twitter.com/bakalagoin) |
+
 ## License
 
-[MIT](LICENSE) © 2026 RAFLOX SAS — Abidjan, Côte d'Ivoire.
+[MIT](LICENSE) © 2026 **RAFLOX SAS** — Abidjan, Côte d'Ivoire.
+
+---
+
+<div align="center">
+
+**Codinfy** — by **RAFLOX SAS** · 📧 [contact@codinfy.com](mailto:contact@codinfy.com) · 🌐 [codinfy.com](https://codinfy.com)
+
+<sub>Part of the Codinfy MCP ecosystem · <a href="https://github.com/bakalagoin/codinfy-mcp">codinfy-mcp</a></sub>
+
+</div>
